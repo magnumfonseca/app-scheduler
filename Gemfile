@@ -19,18 +19,18 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails_12factor', group: :production
 
 group :test do
-  gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem "shoulda-matchers"
   gem "database_cleaner"
-  gem "factory_girl_rails"
 end
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
+  gem "factory_girl_rails"
 end
 

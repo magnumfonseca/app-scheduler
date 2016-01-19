@@ -1,0 +1,32 @@
+<div class="container"> 
+	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-signin" }) do |f| %>
+		<h2>
+			<span class="glyphicon glyphicon-pencil"></span>
+			Edit <%= resource_name.to_s.humanize %>
+		</h2>
+			<%= f.error_notification %>
+			<%= f.input :email, required: true, label: false, disabled: true, placeholder: "Email address", input_html: { class: "form-control" }%>
+			<%= f.input :name, required: true, label:false, placeholder: "Name", input_html: { class: "form-control" }%>
+			<%= f.input :password, label: false, autocomplete: "off",
+				hint: "leave it blank if you don't want to change it",
+				placeholder: "Password",
+				required: false, input_html: { class: "form-control" } %>
+			<%= f.input :password_confirmation, label: false, 
+				required: false, autocomplete: "off",
+				placeholder: "Password confirmation",
+				input_html: { class: "form-control" } %>
+			<%= f.input :current_password, placeholder: "Current password",
+				hint: "we need your current password to confirm your changes", 
+				required: true, label: false, input_html: { class: "form-control" } %>
+			</br>
+			<%= f.button :submit, "Update", class: "btn btn-lg btn-primary btn-block" %>
+<% end %>
+</br>
+<div class="panel panel-warning">
+	<div class="panel-heading">
+		<h3 class="panel-title">Cancel my account</h3>
+	</div>
+	<div class="panel-body">
+		<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+	</div>
+</div>
