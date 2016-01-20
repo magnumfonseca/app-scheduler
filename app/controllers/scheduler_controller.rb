@@ -1,4 +1,4 @@
-class WelcomeController < ApplicationController
+class SchedulerController < ApplicationController
   before_filter :authenticate_user!
 
   def index
