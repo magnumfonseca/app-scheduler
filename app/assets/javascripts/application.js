@@ -98,8 +98,14 @@ $(function () {
 				td.append(boldText);
 				td.append(link);
 				td.addClass('info unavailable');
+			},
+			function(response) {
+				var notify_alert = $('<div>').addClass("alert alert-danger").attr("role", "alert");
+				notify_alert.append("<b>Aviso: </b> Este horário foi reservado por um usuário em outra sessão, " +
+						"atualize a página para sincronizar as informações.");
+				$('.notifications').append(notify_alert);
 			}
-			);
+		);
 	}
 
 	$('.glyphicon-remove').on('click', destroyEvent);
