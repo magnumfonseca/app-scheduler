@@ -9,7 +9,7 @@ class SchedulerController < ApplicationController
 
   private
   def build_hahs_events(events)
-    return [] if events.blank?
+    return {} if events.blank?
     hash = {}
     events.each do |event|
       (hash[event.day] ||= {}).store(event.hour, event)

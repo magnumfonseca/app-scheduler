@@ -19741,3 +19741,238 @@ Processing by EventsController#destroy as JSON
   [1m[35mSQL (0.1ms)[0m  DELETE FROM "events" WHERE "events"."id" = $1  [["id", 38]]
   [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
 Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-01-20 12:44:54 -0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"e534eTGLhXdKG2H9Yt0NX1u/0lzc2kjM7/C3okHXqrcDzQcy4g7aGgj+1gxsh8V9Ik6Hws7x1vb/4wzZYb/VKA=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-20 12:44:54 -0200
+Processing by SchedulerController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-01-20 12:44:54 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 50ms (Views: 48.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-01-20 12:45:00 -0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XwnTrIqAlFxaIFChZDX/PnRJaXBrfrPpC1jOSKSjkAGnGoJNtMbP9ovqowcwGD9uEc/irRSdy0tDnCGRHsY2sA==", "user"=>{"email"=>"magnum@magnum.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "magnum@magnum.com"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["last_sign_in_at", "2016-01-20 03:18:18.967064"], ["current_sign_in_at", "2016-01-20 14:45:00.663326"], ["sign_in_count", 5], ["updated_at", "2016-01-20 14:45:00.664251"], ["id", 2]]
+  [1m[35m (11.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 90ms (ActiveRecord: 12.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-20 12:45:00 -0200
+Processing by SchedulerController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE "events"."week" = $1  [["week", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered scheduler/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 38ms (Views: 35.4ms | ActiveRecord: 0.8ms)
+  [1m[36mEvent Load (0.5ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "events" WHERE "events"."id" = $1  [["id", 5]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = $1  [["id", 14]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "events" WHERE "events"."id" = $1  [["id", 15]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events"
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-20 12:48:27 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchedulerController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mEvent Load (1.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."week" = $1[0m  [["week", 3]]
+  Rendered scheduler/index.html.erb within layouts/application (10.6ms)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 5.7ms)
+
+ActionView::Template::Error (no implicit conversion of String into Integer):
+     6: 				<tr>
+     7: 					<th><%=hour%></td>
+     8: 					<% days_of_week.each do |day|%>
+     9: 						<% if @hash_events[day] && @hash_events[day][hour.to_i] %>
+    10: 							<%= room_unavailable(@hash_events[day][hour.to_i])%>
+    11: 						<%else%>
+    12: 							<td> <a role="button" class="available"
+  app/views/scheduler/index.html.erb:9:in `[]'
+  app/views/scheduler/index.html.erb:9:in `block (2 levels) in _app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+  app/views/scheduler/index.html.erb:8:in `each'
+  app/views/scheduler/index.html.erb:8:in `block in _app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+  app/views/scheduler/index.html.erb:5:in `each'
+  app/views/scheduler/index.html.erb:5:in `_app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+
+
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.5ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (17.0ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (36.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-20 12:48:28 -0200
+Processing by SchedulerController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."week" = $1[0m  [["week", 3]]
+  Rendered scheduler/index.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (no implicit conversion of String into Integer):
+     6: 				<tr>
+     7: 					<th><%=hour%></td>
+     8: 					<% days_of_week.each do |day|%>
+     9: 						<% if @hash_events[day] && @hash_events[day][hour.to_i] %>
+    10: 							<%= room_unavailable(@hash_events[day][hour.to_i])%>
+    11: 						<%else%>
+    12: 							<td> <a role="button" class="available"
+  app/views/scheduler/index.html.erb:9:in `[]'
+  app/views/scheduler/index.html.erb:9:in `block (2 levels) in _app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+  app/views/scheduler/index.html.erb:8:in `each'
+  app/views/scheduler/index.html.erb:8:in `block in _app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+  app/views/scheduler/index.html.erb:5:in `each'
+  app/views/scheduler/index.html.erb:5:in `_app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+
+
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.4ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (19.7ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (35.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-20 12:49:47 -0200
+Processing by SchedulerController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."week" = $1[0m  [["week", 3]]
+  Rendered scheduler/index.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 51088ms (ActiveRecord: 2.5ms)
+
+ActionView::Template::Error (no implicit conversion of String into Integer):
+     6: 				<tr>
+     7: 					<th><%=hour%></td>
+     8: 					<% days_of_week.each do |day|%>
+     9: 						<% if @hash_events[day] && @hash_events[day][hour.to_i] %>
+    10: 							<%= room_unavailable(@hash_events[day][hour.to_i])%>
+    11: 						<%else%>
+    12: 							<td> <a role="button" class="available"
+  app/views/scheduler/index.html.erb:9:in `[]'
+  app/views/scheduler/index.html.erb:9:in `block (2 levels) in _app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+  app/views/scheduler/index.html.erb:8:in `each'
+  app/views/scheduler/index.html.erb:8:in `block in _app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+  app/views/scheduler/index.html.erb:5:in `each'
+  app/views/scheduler/index.html.erb:5:in `_app_views_scheduler_index_html_erb___3908028967551692734_21544700'
+
+
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.7ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (17.7ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mfonseca/.rvm/gems/ruby-2.2.4@scheduler/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (35.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-20 12:50:55 -0200
+Processing by SchedulerController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."week" = $1[0m  [["week", 3]]
+  Rendered scheduler/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 44605ms (Views: 395.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/application.self-4d76d0f0327eb87818de6c3ae30ab3c1e6966d98770cf57e8e215d635d4e2fe1.css?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/application.self-06c7891665281712c093764e7b419c81f5104f398ea99058f3076596274b2044.js?body=1" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2016-01-20 12:51:40 -0200
