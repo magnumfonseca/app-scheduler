@@ -6,7 +6,16 @@
 				<tr>
 					<th><%=hour%></td>
 					<% days_of_week.each do |day|%>
-						<td> <a> Disponível </a> </td>
+						<% if @hash_events[day] && @hash_events[day][hour.to_i] %>
+							<%= room_unavailable(@hash_events[day][hour.to_i])%>
+						<%else%>
+							<td> <a role="button" class="available"
+									data-day=<%=day%> data-hour=<%=hour.to_i%> 
+									data-week=<%=@current_week%>>
+										Disponível
+								</a>
+							</td>
+						<%end%>
 					<%end%>
 				</tr>
 			<%end%>

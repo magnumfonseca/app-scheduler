@@ -14,4 +14,14 @@ RSpec.describe Event, type: :model do
       expect(event.created_by?(other_user)).to be_falsy
     end
   end
+
+  describe "event uniqueness" do
+    it "can not allow two events at same time" do
+      user = create(:user)
+      user.events.build(week: 1, day: "ter", hour:11)
+      user.save
+      event2 = Event.new(week: 1, day: "ter", hour:11)
+      expect(event2.valid?).to be_falsy
+    end
+  end
 end

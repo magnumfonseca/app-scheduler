@@ -26,7 +26,26 @@ module ApplicationHelper
     ['seg','ter','qua', 'qui', 'sex']
   end
 
+  def room_unavailable(event)
+    content_tag :td, class: "info unavailable" do
+      concat user_name_for_event(event.user.name)
+      concat remove_buttom(event)
+    end.html_safe
+  end
+
   private
+  def user_name_for_event(username)
+    content_tag :b do
+      username
+    end.html_safe
+  end
+  def remove_buttom(event)
+    return unless event.created_by?(current_user)
+    content_tag :a do
+      content = "<span class='glyphicon glyphicon-remove pull-right text-red' data-url=#{event_path(event)}></span>"
+      content.html_safe
+    end.html_safe
+  end
   def days_of_week_label(label)
     content_tag :th, label
   end
